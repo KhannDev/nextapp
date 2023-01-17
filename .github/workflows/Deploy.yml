@@ -22,10 +22,12 @@ jobs:
       steps:
         - name: TEsting
           env:
-            keys: ${{ secrets.KEY }}
+            keys: ${{ secrets.USER }}
           run: |
-            echo $keys
-
+            if [ "$key" -eq "ubuntu" ]
+            then
+              echo "Equal Baby"
+            fi
     deploy:
       needs: [build-test]
       runs-on: ubuntu-latest
@@ -33,7 +35,7 @@ jobs:
 
       steps:
         - name: SSH deploy
-          uses: appleboy/ssh-action@master
+          uses: appleboy/ssh-action@v0.1.7
           with: 
             host: ${{ secrets.HOST }}
             username:  ${{ secrets.USER }}
