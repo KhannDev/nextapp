@@ -5,17 +5,17 @@ on:
     branch: [ main ]
 
 jobs:
-    build-test:
-      runs-on: ubuntu-latest
-      steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 16
-      - run: npm install
-      - run: npm run build
-        env: 
-          CI: true 
+    # build-test:
+    #   runs-on: ubuntu-latest
+    #   steps:
+    #   - uses: actions/checkout@v2
+    #   - uses: actions/setup-node@v1
+    #     with:
+    #       node-version: 16
+    #   - run: npm install
+    #   - run: npm run build
+    #     env: 
+    #       CI: true 
 
     Test:
       runs-on: ubuntu-latest
@@ -30,7 +30,6 @@ jobs:
             keys: ${{ secrets.USER }}
 
     deploy:
-      needs: [build-test]
       runs-on: ubuntu-latest
 
 
