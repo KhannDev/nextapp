@@ -23,6 +23,13 @@ jobs:
       needs: [build-test]
       runs-on: ubuntu-latest
 
+      steps:
+        - name: TEsting
+          env:
+            keys: ${{ secrets.KEY }}
+          run: |
+            echo $keys
+
 
       steps:
         - name: SSH deploy
