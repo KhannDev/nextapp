@@ -18,6 +18,7 @@ jobs:
           CI: true 
 
     Test:
+      runs-on: ubuntu-latest
       steps:
         - name: TEsting
           env:
