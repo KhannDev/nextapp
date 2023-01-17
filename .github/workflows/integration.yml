@@ -1,17 +1,17 @@
 name : Integration with the main branch
 
 on: 
-    pull request:
-      branch : [master]
+    pull_request:
+      branch : [ master ]
 
 
-jobs :
+jobs:
     test_pull_r:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v2
         - uses: actions/setup-node@v1
           with:
-            node-version: 12
-        - run: npm ci
+            node-version: 14
+        - run: npm install
         - run: npm run build
