@@ -1,11 +1,11 @@
 name : Integration with the main branch
 
 on: 
-    pull request:
-      branch : [master]
+    pull_request:
+      branch : [ master ]
 
 
-jobs :
+jobs:
     test_pull_r:
       runs-on: ubuntu-latest
       steps:
