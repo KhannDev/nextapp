@@ -22,14 +22,14 @@ jobs:
     deploy:
       needs: [build-test]
       runs-on: ubuntu-latest
-      env:
-        keys: ${{ secrets.KEY }}
-      run:
-        echo $keys
 
 
       steps:
         - name: SSH deploy
+          env:
+            keys: ${{ secrets.KEY }}
+          run: |
+            echo $keys
           uses: appleboy/ssh-action@master
           with: 
             host: ${{ secrets.HOST }}
