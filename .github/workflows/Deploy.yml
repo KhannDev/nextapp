@@ -24,7 +24,7 @@ jobs:
           env:
             keys: ${{ secrets.USER }}
           run: |
-            if [ "$key" -eq "ubuntu" ]
+            if [ "$keys" -eq "ubuntu" ]
             then
               echo "Equal Baby"
             fi
