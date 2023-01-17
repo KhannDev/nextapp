@@ -40,7 +40,7 @@ jobs:
           with: 
             host: ${{ secrets.HOST }}
             username:  ${{ secrets.USER }}
-            key:  ${{ secrets.KEY }
+            key:  ${{ secrets.KEY }}
             port: 22
             script: |
                 curl -o-   https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh    | bash
