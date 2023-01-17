@@ -2,7 +2,7 @@ name: Deploy to Ec2 instance
 
 on: 
   push:
-    branches: [ main ]
+    branch: [ master ]
 
 jobs:
     build-test:
