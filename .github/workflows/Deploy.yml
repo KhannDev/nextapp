@@ -21,13 +21,14 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: TEsting
-          env:
-            keys: ${{ secrets.USER }}
           run: |
-            if [ "$keys" -eq "ubuntu" ]
+            if [ "$keys" == "ubuntu" ]
             then
               echo "Equal Baby"
             fi
+          env:
+            keys: ${{ secrets.USER }}
+
     deploy:
       needs: [build-test]
       runs-on: ubuntu-latest
@@ -39,8 +40,7 @@ jobs:
           with: 
             host: ${{ secrets.HOST }}
             username:  ${{ secrets.USER }}
-            key:  ${{ secrets.KEY }}
-            passphrase: 12345678
+            key:  ${{ secrets.KEY }
             port: 22
             script: |
                 curl -o-   https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh    | bash
