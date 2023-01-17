@@ -17,12 +17,7 @@ jobs:
         env: 
           CI: true 
 
-
-
-    deploy:
-      needs: [build-test]
-      runs-on: ubuntu-latest
-
+    Test:
       steps:
         - name: TEsting
           env:
@@ -30,13 +25,13 @@ jobs:
           run: |
             echo $keys
 
+    deploy:
+      needs: [build-test]
+      runs-on: ubuntu-latest
+
 
       steps:
         - name: SSH deploy
-          env:
-            keys: ${{ secrets.KEY }}
-          run: |
-            echo $keys
           uses: appleboy/ssh-action@master
           with: 
             host: ${{ secrets.HOST }}
